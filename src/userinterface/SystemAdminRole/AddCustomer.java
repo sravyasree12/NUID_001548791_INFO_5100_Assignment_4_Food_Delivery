@@ -61,7 +61,6 @@ public class AddCustomer extends javax.swing.JPanel {
         txtLastName5 = new javax.swing.JTextField();
         txtFirstName5 = new javax.swing.JTextField();
         txtPhoneNumber5 = new javax.swing.JTextField();
-        txtPassword5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtUsername5 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -73,6 +72,7 @@ public class AddCustomer extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -100,8 +100,6 @@ public class AddCustomer extends javax.swing.JPanel {
                 txtPhoneNumber5ActionPerformed(evt);
             }
         });
-
-        txtPassword5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -163,6 +161,8 @@ public class AddCustomer extends javax.swing.JPanel {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neudash-icon.png"))); // NOI18N
 
+        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,22 +188,21 @@ public class AddCustomer extends javax.swing.JPanel {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel4))
                                 .addGap(20, 20, 20)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtLastName5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtFirstName5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPhoneNumber5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHomeAddress5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmailAddress5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtLastName5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtFirstName5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtPhoneNumber5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtHomeAddress5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtAge5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtEmailAddress5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtUsername5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addComponent(jLabel1))
                 .addContainerGap(202, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(btnCreate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -215,6 +214,11 @@ public class AddCustomer extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,17 +245,13 @@ public class AddCustomer extends javax.swing.JPanel {
                                 .addGap(30, 30, 30)
                                 .addComponent(jLabel6)
                                 .addGap(28, 28, 28)
-                                .addComponent(jLabel7))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtPassword5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addComponent(jLabel7)))
+                        .addGap(71, 71, 71)))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,7 +284,7 @@ public class AddCustomer extends javax.swing.JPanel {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         if(txtFirstName5.getText().isEmpty() || txtLastName5.getText().isEmpty() || txtEmailAddress5.getText().isEmpty() ||
-            txtPhoneNumber5.getText().isEmpty() || txtUsername5.getText().isEmpty() || txtPassword5.getText().isEmpty() ||
+            txtPhoneNumber5.getText().isEmpty() || txtUsername5.getText().isEmpty() || txtPassword.getText().isEmpty() ||
             txtHomeAddress5.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be empty");
             return;
@@ -356,7 +356,7 @@ public class AddCustomer extends javax.swing.JPanel {
 
         String homeAddress = txtHomeAddress5.getText();
         String userName = txtUsername5.getText();
-        String password = txtPassword5.getText();
+        String password = txtPassword.getText();
 
         for(UserAccount account : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             if(account.getUsername().equals(userName)) {
@@ -365,7 +365,7 @@ public class AddCustomer extends javax.swing.JPanel {
             }
         }
 
-        System.out.println(ecoSystem.toString());
+        //System.out.println(ecoSystem.toString());
         ecoSystem.getCustomerDirectory().createCustomer(name, email, phoneNumber, age, homeAddress, userName);
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new CustomerRole());
@@ -397,7 +397,7 @@ public class AddCustomer extends javax.swing.JPanel {
     private javax.swing.JTextField txtFirstName5;
     private javax.swing.JTextField txtHomeAddress5;
     private javax.swing.JTextField txtLastName5;
-    private javax.swing.JTextField txtPassword5;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhoneNumber5;
     private javax.swing.JTextField txtUsername5;
     // End of variables declaration//GEN-END:variables

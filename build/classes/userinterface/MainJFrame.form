@@ -115,6 +115,9 @@
             <Component class="javax.swing.JTextField" name="txtUserName">
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtPassword">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>

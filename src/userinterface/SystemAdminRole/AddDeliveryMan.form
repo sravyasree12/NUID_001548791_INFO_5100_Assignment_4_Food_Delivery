@@ -40,7 +40,7 @@
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                       <Component id="txtLastName6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
@@ -51,9 +51,9 @@
                                       <Component id="txtHomeAddress6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
                                       <Component id="txtAge6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
                                       <Component id="txtEmailAddress6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
-                                      <Component id="txtPassword6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
                                       <Component id="txtUsername6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="txtPassword6" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -95,7 +95,7 @@
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtUsername6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtPassword6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -121,7 +121,7 @@
                       <Component id="txtPhoneNumber6" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Component id="btnCreate6" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
               <Component id="jLabel10" min="-2" pref="165" max="-2" attributes="0"/>
@@ -227,18 +227,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPassword6">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-            <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
-          </Border>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPassword6ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -315,6 +303,15 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/neudash-icon.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtPassword6">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+            <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+          </Border>
         </Property>
       </Properties>
     </Component>

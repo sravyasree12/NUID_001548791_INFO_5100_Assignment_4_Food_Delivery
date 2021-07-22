@@ -46,17 +46,15 @@
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="txtLastName5" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
-                              <Component id="txtFirstName5" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtPhoneNumber5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                          <Component id="txtHomeAddress5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                          <Component id="txtAge5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                          <Component id="txtEmailAddress5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                          <Component id="txtPassword5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                          <Component id="txtUsername5" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtLastName5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtFirstName5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtPhoneNumber5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtHomeAddress5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtAge5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtEmailAddress5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtUsername5" alignment="1" pref="165" max="32767" attributes="0"/>
+                          <Component id="txtPassword" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -66,7 +64,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="212" max="32767" attributes="0"/>
               <Component id="jLabel10" min="-2" pref="150" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
@@ -81,6 +79,13 @@
                   <Component id="btnBack" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUsername5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -112,21 +117,15 @@
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUsername5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPassword5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnCreate" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel10" min="-2" pref="160" max="-2" attributes="0"/>
@@ -213,15 +212,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneNumber5ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtPassword5">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-            <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
-          </Border>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -329,6 +319,15 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/neudash-icon.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtPassword">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+            <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+          </Border>
         </Property>
       </Properties>
     </Component>

@@ -100,6 +100,12 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("User Name");
 
@@ -243,6 +249,10 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
          btnLogin.setBackground(Color.white);
     }//GEN-LAST:event_btnLogoutMouseExited
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments

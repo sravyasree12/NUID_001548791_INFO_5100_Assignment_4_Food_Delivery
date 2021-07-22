@@ -59,7 +59,6 @@ public class AddDeliveryMan extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtHomeAddress6 = new javax.swing.JTextField();
-        txtPassword6 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtAge6 = new javax.swing.JTextField();
@@ -69,6 +68,7 @@ public class AddDeliveryMan extends javax.swing.JPanel {
         txtEmailAddress6 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        txtPassword6 = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -114,13 +114,6 @@ public class AddDeliveryMan extends javax.swing.JPanel {
 
         txtHomeAddress6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
-        txtPassword6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtPassword6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassword6ActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address:");
@@ -148,6 +141,8 @@ public class AddDeliveryMan extends javax.swing.JPanel {
         jLabel4.setText("Email Address:");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neudash-icon.png"))); // NOI18N
+
+        txtPassword6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -181,8 +176,8 @@ public class AddDeliveryMan extends javax.swing.JPanel {
                                         .addComponent(txtHomeAddress6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtAge6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtEmailAddress6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPassword6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtUsername6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(txtUsername6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPassword6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCreate6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(206, 206, 206)))
@@ -213,7 +208,7 @@ public class AddDeliveryMan extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txtUsername6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(txtPassword6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -233,7 +228,7 @@ public class AddDeliveryMan extends javax.swing.JPanel {
                             .addComponent(jLabel6))
                         .addGap(32, 32, 32)
                         .addComponent(txtPhoneNumber6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnCreate6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(143, 143, 143)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -345,10 +340,6 @@ public class AddDeliveryMan extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtPassword6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassword6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassword6ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -368,7 +359,7 @@ public class AddDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JTextField txtFirstName6;
     private javax.swing.JTextField txtHomeAddress6;
     private javax.swing.JTextField txtLastName6;
-    private javax.swing.JTextField txtPassword6;
+    private javax.swing.JPasswordField txtPassword6;
     private javax.swing.JTextField txtPhoneNumber6;
     private javax.swing.JTextField txtUsername6;
     // End of variables declaration//GEN-END:variables
