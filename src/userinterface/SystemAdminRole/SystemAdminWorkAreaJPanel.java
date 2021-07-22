@@ -5,17 +5,13 @@
  */
 package userinterface.SystemAdminRole;
 
-import userinterface.RestaurantAdminRole.ManageOrganizationJPanel;
-import userinterface.RestaurantAdminRole.ManageUserAccountJPanel;
-import userinterface.RestaurantAdminRole.ManageEmployeeJPanel;
+import Business.Customer.Customer;
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryMan;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
-
-import userinterface.SystemAdminRole.ManageCustomersJPanel;
-import userinterface.SystemAdminRole.ManageEnterpriseAdminJPanel;
-import userinterface.SystemAdminRole.ManageEnterpriseJPanel;
-import userinterface.SystemAdminRole.SystemAdminWorkAreaJPanel;
-import Business.Organization;
-import Business.UserAccount.UserAccount;
+import Business.Restaurant.Restaurant;
+import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -24,26 +20,79 @@ import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
- * @author MyPC1
+ * @author Sravya
  */
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     EcoSystem ecoSystem;
+    CustomerDirectory customerDirectory;
+    RestaurantDirectory restaurantDirectory;
+    DeliveryManDirectory deliveryManDirectory;
 
-    /**
-     * Creates new form SystemAdminWorkAreaJPanel
-    */
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
+    
+    public SystemAdminWorkAreaJPanel(
+            JPanel userProcessContainer, 
+            EcoSystem ecoSystem, 
+            CustomerDirectory customerDirectory, 
+            RestaurantDirectory restaurantDirectory, 
+            DeliveryManDirectory deliveryManDirectory) {
+        
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecoSystem = ecoSystem;
+        this.ecoSystem = EcoSystem.getEcoSystemInstance();
+        this.customerDirectory = ecoSystem.getCustomerDirectory();
+        this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
+        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        
         populateTree();
     }
     
     public void populateTree(){
-        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
+        DefaultTreeModel model = (DefaultTreeModel)jTree.getModel();
        // Add the code for draw your system structure shown by JTree
+       
+        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("System Admin");
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        root.insert(networks, 0);
+        
+        ArrayList<Customer> customerList = this.ecoSystem.getCustomerDirectory().getCustomerList();
+        ArrayList<DeliveryMan> deliveryList = this.ecoSystem.getDeliveryManDirectory().getDeliveryManList();
+        ArrayList<Restaurant> restaurantList = this.ecoSystem.getRestaurantDirectory().getRestaurantList();
+        
+        DefaultMutableTreeNode customerListNode = new DefaultMutableTreeNode("Customer");
+        DefaultMutableTreeNode deliveryManListNode  = new DefaultMutableTreeNode("Delivery Man");
+        DefaultMutableTreeNode restaurantListNode = new DefaultMutableTreeNode("Restaurant");
+        networks.insert(customerListNode, 0);
+        networks.insert(deliveryManListNode, 1);
+        networks.insert(restaurantListNode, 2);
+        
+        DefaultMutableTreeNode customerNode;
+        DefaultMutableTreeNode deliveryManNode;
+        DefaultMutableTreeNode restaurantNode;
+        
+        Customer customer;
+        DeliveryMan deliveryMan;
+        Restaurant restaurant;
+        
+        for(int i = 0; i < customerList.size(); i++){
+            customer = customerList.get(i);
+            customerNode = new DefaultMutableTreeNode(customer.getName());
+            customerListNode.insert(customerNode, i);
+            
+        }    
+        for(int j = 0; j < deliveryList.size(); j++){
+            deliveryMan = deliveryList.get(j);
+            deliveryManNode = new DefaultMutableTreeNode(deliveryMan.getName());
+            deliveryManListNode.insert(deliveryManNode, j);
+        }        
+                
+        for(int k = 0; k < restaurantList.size(); k++){
+            restaurant = restaurantList.get(k);
+            restaurantNode = new DefaultMutableTreeNode(restaurant.getRestaurantName());
+            restaurantListNode.insert(restaurantNode, k);
+        }
        
         model.reload();
     }
@@ -63,9 +112,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblSelectedNode = new javax.swing.JLabel();
-        btnManageNetwork = new javax.swing.JButton();
-        btnManageEnterprise = new javax.swing.JButton();
-        btnManageAdmin = new javax.swing.JButton();
+        btnManageCustomers = new javax.swing.JButton();
+        btnManageRestaurant = new javax.swing.JButton();
+        btnManageDeliveryMan = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -81,110 +131,104 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 118, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 350, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Selected Node:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, -1));
 
+        lblSelectedNode.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblSelectedNode.setText("<View_selected_node>");
+        jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 14, -1, -1));
 
-        btnManageNetwork.setText("Manage All Customers");
-        btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
+        btnManageCustomers.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageCustomers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageCustomers.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\mng customers.png")); // NOI18N
+        btnManageCustomers.setText("Manage All Customers");
+        btnManageCustomers.setContentAreaFilled(false);
+        btnManageCustomers.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnManageCustomers.setOpaque(true);
+        btnManageCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetworkActionPerformed(evt);
+                btnManageCustomersActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        btnManageEnterprise.setText("Manage Restaurants");
-        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
+        btnManageRestaurant.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageRestaurant.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageRestaurant.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\res.png")); // NOI18N
+        btnManageRestaurant.setText("Manage Restaurants");
+        btnManageRestaurant.setContentAreaFilled(false);
+        btnManageRestaurant.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnManageRestaurant.setOpaque(true);
+        btnManageRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageEnterpriseActionPerformed(evt);
+                btnManageRestaurantActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 210, -1));
 
-        btnManageAdmin.setText("Manage Delivery Man");
-        btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
+        btnManageDeliveryMan.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageDeliveryMan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageDeliveryMan.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-user-male-64.png")); // NOI18N
+        btnManageDeliveryMan.setText("Manage Delivery Men");
+        btnManageDeliveryMan.setContentAreaFilled(false);
+        btnManageDeliveryMan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnManageDeliveryMan.setOpaque(true);
+        btnManageDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageAdminActionPerformed(evt);
+                btnManageDeliveryManActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 210, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSelectedNode))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(249, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSelectedNode))
-                .addGap(68, 68, 68)
-                .addComponent(btnManageNetwork)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageEnterprise)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageAdmin)
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sakura-background.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jSplitPane.setRightComponent(jPanel2);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
+    private void btnManageCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCustomersActionPerformed
        
-        ManageCustomersJPanel manageCustomersJPanel = new ManageCustomersJPanel(userProcessContainer, ecoSystem);
+        ManageCustomer manageCustomersJPanel = new ManageCustomer(userProcessContainer, ecoSystem, customerDirectory);
         userProcessContainer.add("ManageCustomersJPanel", manageCustomersJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageNetworkActionPerformed
+    }//GEN-LAST:event_btnManageCustomersActionPerformed
 
-    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        ManageEnterpriseJPanel manageEnterpriseJPanel=new ManageEnterpriseJPanel(userProcessContainer, ecoSystem);
-        userProcessContainer.add("manageEnterpriseJPanel",manageEnterpriseJPanel);
+    private void btnManageRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantActionPerformed
+        ManageRestaurant manageRestaurantJPanel = new ManageRestaurant(userProcessContainer, ecoSystem, restaurantDirectory);
+        userProcessContainer.add("ManageRestaurantJPanel",manageRestaurantJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
+    }//GEN-LAST:event_btnManageRestaurantActionPerformed
 
-    private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
-        ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel=new ManageEnterpriseAdminJPanel(userProcessContainer, ecoSystem);
-        userProcessContainer.add("manageEnterpriseAdminJPanel",manageEnterpriseAdminJPanel);
+    private void btnManageDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryManActionPerformed
+        ManageDeliveryMan manageDeliveryManJPanel = new ManageDeliveryMan(userProcessContainer, ecoSystem, deliveryManDirectory);
+        userProcessContainer.add("ManageDeliveryManJPanel",manageDeliveryManJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnManageAdminActionPerformed
+    }//GEN-LAST:event_btnManageDeliveryManActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
         
-        DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree.getLastSelectedPathComponent();
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode)jTree.getLastSelectedPathComponent();
         if(selectedNode!= null){
             lblSelectedNode.setText(selectedNode.toString());
         }
@@ -192,10 +236,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageAdmin;
-    private javax.swing.JButton btnManageEnterprise;
-    private javax.swing.JButton btnManageNetwork;
+    private javax.swing.JButton btnManageCustomers;
+    private javax.swing.JButton btnManageDeliveryMan;
+    private javax.swing.JButton btnManageRestaurant;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

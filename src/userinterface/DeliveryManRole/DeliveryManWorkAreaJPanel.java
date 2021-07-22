@@ -9,10 +9,7 @@ import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
-import Business.Organization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -33,10 +30,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             JPanel workArea, 
             UserAccount account,  
             EcoSystem ecoSystem,
-            DeliveryManDirectory deliveryManDirector,
+            DeliveryManDirectory deliveryManDirectory,
             OrderDirectory orderDirectory) {
         initComponents();
-        
+        this.setSize(1104, 646);
         this.workArea = workArea;
         this.userAccount = account;
         this.ecoSystem = ecoSystem;
@@ -52,7 +49,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Order order : ecoSystem.getOrderDirectory().getOrderList()) {
-            if (order.getOrderStatus() != null && order.getOrderStatus().equals("Order Ready for Pick-up")) {
+            if (order.getOrderStatus() != null && order.getOrderStatus().equals("Order is ready for delivery")) {
                 Object[] row = new Object[7];
                 row[0] = order;
                 row[1] = order.getMessage();
@@ -104,6 +101,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         tblDeliveryMan = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,12 +111,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        workRequestJTable.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Order ID", "Comment", "Order Status", "Customer Name", "Customer Address", "Restaurant", "Restaurant Address"
@@ -142,38 +139,42 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         workRequestJTable.setSelectionForeground(new java.awt.Color(51, 51, 255));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 1060, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 1060, 96));
 
+        assignJButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        assignJButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-connected-people-30.png")); // NOI18N
         assignJButton.setText("Assign to me");
+        assignJButton.setContentAreaFilled(false);
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 140, 40));
 
+        processJButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-process-30.png")); // NOI18N
         processJButton.setText("Process Order");
+        processJButton.setContentAreaFilled(false);
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 190, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 150, -1));
 
-        refreshJButton.setText("Refresh Table");
+        refreshJButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-refresh-30.png")); // NOI18N
+        refreshJButton.setContentAreaFilled(false);
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 40, 30));
 
+        tblDeliveryMan.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Order ID", "Customer Name", "Customer Address", "Restaurant", "Restaurant Address", "Order Status"
@@ -191,15 +192,23 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         tblDeliveryMan.setSelectionForeground(new java.awt.Color(102, 102, 255));
         jScrollPane2.setViewportView(tblDeliveryMan);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 1060, 180));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 1060, 180));
 
-        jLabel1.setFont(new java.awt.Font("Segoe Script", 0, 36)); // NOI18N
-        jLabel1.setText("Delivery Man Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Hello Dasher!");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\doordash_icon.jpg")); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 280, 140));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Order Requests");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("My NEUDash Deliveries");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neudash-icon.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 470, 150, 160));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -248,6 +257,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton assignJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

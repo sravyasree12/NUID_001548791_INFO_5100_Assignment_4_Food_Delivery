@@ -100,42 +100,70 @@ public class ManageOrders extends javax.swing.JPanel {
         tblOrder1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         cmbDeliveryMan = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 36)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+        setOpaque(false);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Manage Orders");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 38, 186, -1));
 
-        btnAcceptOrder.setText("Accept Order");
+        btnAcceptOrder.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnAcceptOrder.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\3d check mark.png")); // NOI18N
+        btnAcceptOrder.setText("Accept");
+        btnAcceptOrder.setToolTipText("Accept Order");
+        btnAcceptOrder.setContentAreaFilled(false);
+        btnAcceptOrder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnAcceptOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptOrderActionPerformed(evt);
             }
         });
+        add(btnAcceptOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 100, 30));
 
+        btnDeliverOrder.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnDeliverOrder.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\deliver order.png")); // NOI18N
         btnDeliverOrder.setText("Deliver Order");
+        btnDeliverOrder.setContentAreaFilled(false);
+        btnDeliverOrder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDeliverOrder.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnDeliverOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeliverOrderActionPerformed(evt);
             }
         });
+        add(btnDeliverOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 140, 40));
 
+        tblOrder1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tblOrder1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Order ID", "Item Name", "Quantity", "Price", "Order Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblOrder1.setSelectionBackground(new java.awt.Color(255, 204, 204));
         tblOrder1.setSelectionForeground(new java.awt.Color(102, 102, 255));
         jScrollPane1.setViewportView(tblOrder1);
 
-        jLabel2.setText("Select DeliveryMan");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 98, 822, 131));
+
+        jLabel2.setText("Select Delivery Man");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 107, -1));
 
         cmbDeliveryMan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
@@ -143,70 +171,38 @@ public class ManageOrders extends javax.swing.JPanel {
                 cmbDeliveryManActionPerformed(evt);
             }
         });
+        add(cmbDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 130, 20));
 
-        jButton1.setText("Confirm");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfirm.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnConfirm.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\confirm.png")); // NOI18N
+        btnConfirm.setText("Confirm");
+        btnConfirm.setContentAreaFilled(false);
+        btnConfirm.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnConfirmMouseClicked(evt);
             }
         });
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 110, 30));
 
-        btnBack.setText("Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        btnBack.setToolTipText("Back");
+        btnBack.setContentAreaFilled(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 38, 40, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnAcceptOrder)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(btnDeliverOrder))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(cmbDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBack)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAcceptOrder)
-                    .addComponent(btnDeliverOrder))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(32, 32, 32)
-                .addComponent(jButton1)
-                .addGap(51, 51, 51))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\white.jpg")); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrderActionPerformed
@@ -235,7 +231,7 @@ public class ManageOrders extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblOrder1.getSelectedRow();
         if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -259,17 +255,17 @@ public class ManageOrders extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnDeliverOrderActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
         // TODO add your handling code here:
-        String name=(String) cmbDeliveryMan.getSelectedItem();
-        if(name == " "){
-            JOptionPane.showMessageDialog(null,"Select a Delivery Man","Selected Delivery Man" ,JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Selected Delivery Man: " +name);
-
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
+//        String name=(String) cmbDeliveryMan.getSelectedItem();
+//        if(name == " "){
+//            JOptionPane.showMessageDialog(null,"Select a Delivery Man","Selected Delivery Man" ,JOptionPane.WARNING_MESSAGE);
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null,"Selected Delivery Man: " +name);
+//
+//        }
+    }//GEN-LAST:event_btnConfirmMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -282,15 +278,31 @@ public class ManageOrders extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbDeliveryManActionPerformed
 
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        
+        //complete this later
+         String name = (String) cmbDeliveryMan.getSelectedItem();
+        if(name == " "){
+            JOptionPane.showMessageDialog(null,"Select a Delivery Man","Selected Delivery Man" ,JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Selected Delivery Man: " + name);
+
+        }
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptOrder;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnDeliverOrder;
     private javax.swing.JComboBox<String> cmbDeliveryMan;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblOrder1;
     // End of variables declaration//GEN-END:variables

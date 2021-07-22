@@ -12,7 +12,7 @@ public class ConfigureASystem {
     
     public static EcoSystem configure(){
         
-        EcoSystem ecoSystem = EcoSystem.getInstance();
+        EcoSystem ecoSystem = EcoSystem.getEcoSystemInstance();
         
         //Create a network
         //create an enterprise
@@ -20,7 +20,7 @@ public class ConfigureASystem {
         //have some employees 
         //create user account
         
-        Employee employee = ecoSystem.getEmployeeDirectory().createEmployee("Adam");
+        Employee employee = ecoSystem.getEmployeeDirectory().createEmployee("ram");
         
         UserAccount ua = ecoSystem.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
         
@@ -28,3 +28,4 @@ public class ConfigureASystem {
     }
     
 }
+

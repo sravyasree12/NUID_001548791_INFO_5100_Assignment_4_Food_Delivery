@@ -46,7 +46,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             MenuDirectory menuDirectory,
             OrderDirectory orderDirectory) {
         initComponents();
-        this.setSize(931, 723);
+        this.setSize(984, 780);
+        //this.setSize(1062, 747);
         this.workArea = workArea;
         this.userAccount = account;
         this.ecoSystem = ecoSystem;
@@ -135,25 +136,34 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setToolTipText("Show Menu");
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnShowMenu.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-menu-squared-30.png")); // NOI18N
         btnShowMenu.setText("Show Menu");
+        btnShowMenu.setToolTipText("Show Menu");
+        btnShowMenu.setContentAreaFilled(false);
         btnShowMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowMenuActionPerformed(evt);
             }
         });
-        add(btnShowMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 113, -1, -1));
+        add(btnShowMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 140, 20));
 
-        lblCustomer.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        lblCustomer.setText("Customer:");
-        add(lblCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, -1));
+        lblCustomer.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCustomer.setText("Hello,");
+        add(lblCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
+        valueLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 21, 158, 26));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, 26));
 
+        tblDishes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Order", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        tblDishes.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tblDishes.setForeground(new java.awt.Color(255, 204, 204));
         tblDishes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -170,11 +180,22 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblDishes.setSelectionBackground(new java.awt.Color(255, 204, 204));
-        tblDishes.setSelectionForeground(new java.awt.Color(0, 51, 255));
+        tblDishes.setGridColor(new java.awt.Color(255, 255, 255));
+        tblDishes.setSelectionBackground(new java.awt.Color(204, 255, 204));
+        tblDishes.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tblDishes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tblDishesFocusGained(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblDishes);
+        if (tblDishes.getColumnModel().getColumnCount() > 0) {
+            tblDishes.getColumnModel().getColumn(0).setHeaderValue("Dish Name");
+            tblDishes.getColumnModel().getColumn(1).setHeaderValue("Price");
+        }
+        tblDishes.getAccessibleContext().setAccessibleName("");
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 159, 709, 149));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 900, 149));
 
         cmbRestaurants.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbRestaurants.addActionListener(new java.awt.event.ActionListener() {
@@ -182,18 +203,27 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 cmbRestaurantsActionPerformed(evt);
             }
         });
-        add(cmbRestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 114, 144, -1));
+        add(cmbRestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 140, 20));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Quantity:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 353, -1, -1));
-        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 347, 90, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
+        txtQuantity.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQuantityActionPerformed(evt);
+            }
+        });
+        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 40, 20));
+
+        tblWorkRequests.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tblWorkRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Order ID", "Dish Name", "Price", "Restaurant", "Comment", "Delivery By", "Order Status", "Quantity"
+                "Order ID", "Dish Name", "Price", "Restaurant", "Comment", "Ordered By", "Order Status", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
@@ -215,47 +245,74 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         tblWorkRequests.setSelectionForeground(new java.awt.Color(51, 51, 255));
         jScrollPane1.setViewportView(tblWorkRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 910, 154));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 910, 154));
 
+        btnPlaceOrder.setBackground(new java.awt.Color(255, 255, 255));
+        btnPlaceOrder.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnPlaceOrder.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-shopping-basket-64.png")); // NOI18N
         btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.setToolTipText("Place Order");
+        btnPlaceOrder.setBorder(null);
+        btnPlaceOrder.setBorderPainted(false);
+        btnPlaceOrder.setContentAreaFilled(false);
+        btnPlaceOrder.setFocusPainted(false);
+        btnPlaceOrder.setFocusable(false);
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlaceOrderActionPerformed(evt);
             }
         });
-        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 347, 110, -1));
+        add(btnPlaceOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 130, 20));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel2.setText("Your Comment:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 636, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, -1, -1));
 
-        btnSubmit.setText("Submit Comment");
+        btnSubmit.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\check mark-gradient.png")); // NOI18N
+        btnSubmit.setText("Submit");
+        btnSubmit.setContentAreaFilled(false);
+        btnSubmit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 676, -1, -1));
-        add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 630, 204, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 110, 30));
 
-        btnRefresh.setText("Refresh Table");
+        txtComment.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtComment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommentActionPerformed(evt);
+            }
+        });
+        add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 170, 20));
+
+        btnRefresh.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-refresh-30.png")); // NOI18N
+        btnRefresh.setToolTipText("Refresh ");
+        btnRefresh.setContentAreaFilled(false);
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 676, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 30, 30));
 
-        jLabel3.setText("Select Restaurant:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 119, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-buffet-breakfast-30.png")); // NOI18N
+        jLabel3.setText("Restaurants");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 120, 20));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Your Cart");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 69, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Your Order History");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 424, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, -140, 80, 730));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\feedingamerica-dd")); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -140, 1230, 810));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/neudash-icon.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 600, 150, 160));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnShowMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowMenuActionPerformed
@@ -284,7 +341,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurant(restaurantName);
         Customer customer = ecoSystem.getCustomerDirectory().getCustomer(userAccount.getEmployee().getName());
         Menu menu = (Menu) tblDishes.getValueAt(selectedRow, 0);
-        String status = "Order Placed";
+        String status = "Order has been placed!";
 
         Order order = ecoSystem.getOrderDirectory().createOrder();
         order.setCustomer(customer);
@@ -324,6 +381,18 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+    private void tblDishesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblDishesFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblDishesFocusGained
+
+    private void txtCommentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommentActionPerformed
+
+    private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQuantityActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JButton btnRefresh;
@@ -336,6 +405,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCustomer;

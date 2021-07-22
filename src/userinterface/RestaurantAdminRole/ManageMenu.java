@@ -76,11 +76,12 @@ public class ManageMenu extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblMenu2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tblMenu2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -101,52 +102,59 @@ public class ManageMenu extends javax.swing.JPanel {
         tblMenu2.setSelectionForeground(new java.awt.Color(102, 102, 255));
         jScrollPane1.setViewportView(tblMenu2);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 470, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 470, 150));
 
-        btnBack.setText("Back");
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\back.png")); // NOI18N
+        btnBack.setContentAreaFilled(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 66, 87, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 40, 40));
 
+        btnAdd2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnAdd2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\icons8-add-64.png")); // NOI18N
         btnAdd2.setText("Add ");
+        btnAdd2.setContentAreaFilled(false);
         btnAdd2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdd2ActionPerformed(evt);
             }
         });
-        add(btnAdd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 70, -1));
+        add(btnAdd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 100, -1));
 
+        txtPrice2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtPrice2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrice2ActionPerformed(evt);
             }
         });
-        add(txtPrice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 492, 141, -1));
+        add(txtPrice2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 141, -1));
 
+        txtItemName2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtItemName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtItemName2ActionPerformed(evt);
             }
         });
-        add(txtItemName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 446, 141, -1));
+        add(txtItemName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 141, -1));
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel4.setText("Price:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 496, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Price (in $)");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel3.setText("Dish Name:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 450, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Dish Name");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe Script", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Manage Restaurant Menu");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\dd-food")); // NOI18N
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 680, 250));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\neudash-icon.png")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 160, 170));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -177,6 +185,9 @@ public class ManageMenu extends javax.swing.JPanel {
 
         menuDirectory.addDish(dishName, price, restaurant);
         populateTable();
+        JOptionPane.showMessageDialog(this, "Dish and price details added!", "Message", JOptionPane.OK_OPTION);
+        txtItemName2.setText("");
+        txtPrice2.setText("");
 
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
@@ -193,9 +204,9 @@ public class ManageMenu extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblMenu2;
     private javax.swing.JTextField txtItemName2;

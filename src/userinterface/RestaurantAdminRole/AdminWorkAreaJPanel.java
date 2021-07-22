@@ -39,6 +39,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             MenuDirectory menuDirectory, 
             OrderDirectory orderDirectory) {
         initComponents();
+        this.setSize(856, 556);
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem = ecoSystem;
@@ -59,58 +60,76 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         btnManageRestaurants = new javax.swing.JButton();
         btnManageMenu = new javax.swing.JButton();
         btnManageOrders = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Admin Work Area");
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Hello,");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Restaurant :");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 120, 30));
-
+        valueLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 130, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, -1));
 
-        btnManageRestaurants.setText("Manage Restaurants");
+        btnManageRestaurants.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageRestaurants.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageRestaurants.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\res.png")); // NOI18N
+        btnManageRestaurants.setText("Manage Restaurant Information");
+        btnManageRestaurants.setToolTipText("");
+        btnManageRestaurants.setBorderPainted(false);
+        btnManageRestaurants.setContentAreaFilled(false);
+        btnManageRestaurants.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnManageRestaurants.setOpaque(true);
         btnManageRestaurants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRestaurantsActionPerformed(evt);
             }
         });
-        add(btnManageRestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 150, -1));
+        add(btnManageRestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 280, 40));
 
+        btnManageMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageMenu.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\mng res menu.png")); // NOI18N
         btnManageMenu.setText("Manage Menu");
+        btnManageMenu.setContentAreaFilled(false);
+        btnManageMenu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnManageMenu.setOpaque(true);
         btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageMenuActionPerformed(evt);
             }
         });
-        add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 150, -1));
+        add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 280, -1));
 
+        btnManageOrders.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageOrders.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnManageOrders.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\mng orders.png")); // NOI18N
         btnManageOrders.setText("Manage Orders");
+        btnManageOrders.setContentAreaFilled(false);
+        btnManageOrders.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnManageOrders.setOpaque(true);
         btnManageOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageOrdersActionPerformed(evt);
             }
         });
-        add(btnManageOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, -1));
+        add(btnManageOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 280, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\doordash-blue")); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sakura-background.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 550));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageRestaurantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantsActionPerformed
         // TODO add your handling code here:
-        ManageRestaurants mrijp = new ManageRestaurants(userProcessContainer,account, ecoSystem, restaurantDirectory);
+        ManageRestaurants mrijp = new ManageRestaurants(userProcessContainer, account, ecoSystem, restaurantDirectory);
         userProcessContainer.add("ManageRestaurantInfoJPanel", mrijp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -119,7 +138,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMenuActionPerformed
 
-        ManageMenu manageMenuJPanel = new ManageMenu(userProcessContainer,account, ecoSystem, restaurantDirectory,menuDirectory);
+        ManageMenu manageMenuJPanel = new ManageMenu(userProcessContainer, account, ecoSystem, restaurantDirectory, menuDirectory);
         userProcessContainer.add("manageMenuJPanel", manageMenuJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -129,7 +148,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrdersActionPerformed
 
-        ManageOrders manageOrderJPanel = new ManageOrders(userProcessContainer,account, ecoSystem, restaurantDirectory,menuDirectory, orderDirectory);
+        ManageOrders manageOrderJPanel = new ManageOrders(userProcessContainer,account, ecoSystem, restaurantDirectory, menuDirectory, orderDirectory);
         userProcessContainer.add("ManageOrderJPanel", manageOrderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -140,9 +159,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageMenu;
     private javax.swing.JButton btnManageOrders;
     private javax.swing.JButton btnManageRestaurants;
-    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
     

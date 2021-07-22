@@ -35,9 +35,10 @@ public class EcoSystem extends Organization{
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
+        ecoSystem = EcoSystem.getEcoSystemInstance();
     }
 
-    public static EcoSystem getInstance(){
+    public static EcoSystem getEcoSystemInstance(){
         if(ecoSystem == null){
             ecoSystem = new EcoSystem();
         }
@@ -108,13 +109,5 @@ public class EcoSystem extends Organization{
     public void setMenuDirectory(MenuDirectory menuDirectory) {
         this.menuDirectory = menuDirectory;
     }
-    
-    
-    
-    
-    
-    
-
-    
-    
+     
 }
