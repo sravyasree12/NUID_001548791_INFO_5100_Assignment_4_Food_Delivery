@@ -327,6 +327,14 @@ public class AddDeliveryMan extends javax.swing.JPanel {
         ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new DeliveryManRole());
 
         JOptionPane.showMessageDialog(null, "Your profile has been successfully created!");
+        txtAge6.setText("");
+        txtEmailAddress6.setText("");
+        txtFirstName6.setText("");
+        txtHomeAddress6.setText("");
+        txtLastName6.setText("");
+        txtPassword6.setText("");
+        txtPhoneNumber6.setText("");
+        txtUsername6.setText("");
     }//GEN-LAST:event_btnCreate6ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

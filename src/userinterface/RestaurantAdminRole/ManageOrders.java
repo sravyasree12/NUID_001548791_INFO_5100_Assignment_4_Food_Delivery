@@ -115,7 +115,7 @@ public class ManageOrders extends javax.swing.JPanel {
 
         btnAcceptOrder.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnAcceptOrder.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\3d check mark.png")); // NOI18N
-        btnAcceptOrder.setText("Accept");
+        btnAcceptOrder.setText("Accept Order");
         btnAcceptOrder.setToolTipText("Accept Order");
         btnAcceptOrder.setContentAreaFilled(false);
         btnAcceptOrder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -124,7 +124,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 btnAcceptOrderActionPerformed(evt);
             }
         });
-        add(btnAcceptOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 100, 30));
+        add(btnAcceptOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 140, 30));
 
         btnDeliverOrder.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnDeliverOrder.setIcon(new javax.swing.ImageIcon("C:\\Users\\sravy\\OneDrive\\Pictures\\A4 pics\\deliver order.png")); // NOI18N

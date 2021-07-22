@@ -224,6 +224,9 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.next(container);
         btnLogout.setEnabled(true);
         btnLogin.setEnabled(false);
+        txtUserName.setText("");
+        txtPassword.setText("");
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked

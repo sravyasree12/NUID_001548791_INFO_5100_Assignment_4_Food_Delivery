@@ -259,6 +259,11 @@ public class ModifyDeliveryMan extends javax.swing.JPanel {
         deliveryMan.setHomeAddress(homeAddress);
 
         JOptionPane.showMessageDialog(null, "Delivery Man Profile Updated");
+        txtModifyAge.setText("");
+        txtModifyEmailAddress.setText("");
+        txtModifyHomeAddress.setText("");
+        txtModifyName.setText("");
+        txtModifyPhNo.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

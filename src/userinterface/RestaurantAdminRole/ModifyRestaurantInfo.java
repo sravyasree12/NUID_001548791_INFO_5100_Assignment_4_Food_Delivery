@@ -221,6 +221,10 @@ public class ModifyRestaurantInfo extends javax.swing.JPanel {
         restaurant.setRestaurantAddress(address);
 
         JOptionPane.showMessageDialog(null, "Restaurant Updated");
+        txtAddress4.setText("");
+        txtManagerName4.setText("");
+        txtPhoneNumber4.setText("");
+        txtRestaurantName4.setText("");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

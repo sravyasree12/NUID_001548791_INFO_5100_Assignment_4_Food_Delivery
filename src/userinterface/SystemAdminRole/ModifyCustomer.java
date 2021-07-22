@@ -255,6 +255,11 @@ public class ModifyCustomer extends javax.swing.JPanel {
         customer.setHomeAddress(homeAddress);
 
         JOptionPane.showMessageDialog(null, "Customer Profile Updated");
+        txtModifyAge.setText("");
+        txtModifyEmailAddress.setText("");
+        txtModifyHomeAddress.setText("");
+        txtModifyName.setText("");
+        txtModifyPhNo.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

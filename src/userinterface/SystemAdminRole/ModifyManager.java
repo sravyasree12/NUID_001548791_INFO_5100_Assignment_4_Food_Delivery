@@ -230,6 +230,10 @@ public class ModifyManager extends javax.swing.JPanel {
         restaurant.setRestaurantAddress(address);
 
         JOptionPane.showMessageDialog(null, "Restaurant Details Updated");
+        txtAddress11.setText("");
+        txtManagerName11.setText("");
+        txtPhoneNumber11.setText("");
+        txtRestaurantName11.setText("");
     }//GEN-LAST:event_btnCreate11ActionPerformed
 
 

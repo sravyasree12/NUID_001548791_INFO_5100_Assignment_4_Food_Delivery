@@ -284,6 +284,12 @@ public class AddRestaurant extends javax.swing.JPanel {
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new AdminRole());
 
         JOptionPane.showMessageDialog(null, "Restaurant Created");
+        txtAddress7.setText("");
+        txtManagerName7.setText("");
+        txtPassword7.setText("");
+        txtPhoneNumber7.setText("");
+        txtRestaurantName7.setText("");
+        txtUsername7.setText("");
 
     }//GEN-LAST:event_btnCreateActionPerformed
 

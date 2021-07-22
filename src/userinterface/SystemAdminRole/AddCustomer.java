@@ -371,6 +371,14 @@ public class AddCustomer extends javax.swing.JPanel {
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new CustomerRole());
 
         JOptionPane.showMessageDialog(null, "Your profile has been successfully created!");
+        txtAge5.setText("");
+        txtEmailAddress5.setText("");
+        txtFirstName5.setText("");
+        txtHomeAddress5.setText("");
+        txtLastName5.setText("");
+        txtPassword.setText("");
+        txtPhoneNumber5.setText("");
+        txtUsername5.setText("");
 
     }//GEN-LAST:event_btnCreateActionPerformed
 
