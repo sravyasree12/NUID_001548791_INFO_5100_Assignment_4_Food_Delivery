@@ -162,6 +162,22 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 110, 26));
 
         tblDishes.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tblDishes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Dish Name", "Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblDishes.setGridColor(new java.awt.Color(255, 255, 255));
         tblDishes.setSelectionBackground(new java.awt.Color(255, 204, 204));
         tblDishes.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -172,10 +188,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(tblDishes);
-        if (tblDishes.getColumnModel().getColumnCount() > 0) {
-            tblDishes.getColumnModel().getColumn(0).setHeaderValue("Dish Name");
-            tblDishes.getColumnModel().getColumn(1).setHeaderValue("Price");
-        }
         tblDishes.getAccessibleContext().setAccessibleName("");
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 900, 149));
@@ -324,7 +336,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurant(restaurantName);
         Customer customer = ecoSystem.getCustomerDirectory().getCustomer(userAccount.getEmployee().getName());
         Menu menu = (Menu) tblDishes.getValueAt(selectedRow, 0);
-        String status = "Order has been placed!";
+        String status = "Order placed!";
 
         Order order = ecoSystem.getOrderDirectory().createOrder();
         order.setCustomer(customer);
@@ -335,7 +347,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         order.setOrderStatus(status);
         order.setAssign(false);
 
-        JOptionPane.showMessageDialog(null,"Your order has been placed!");
+        JOptionPane.showMessageDialog(null,"Order placed!");
         populateRequestTable();
 
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
@@ -356,6 +368,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         Order order = (Order)tblWorkRequests.getValueAt(selectedRow, 0);
         order.setMessage(txtComment.getText());
         populateRequestTable();
+        txtComment.setText("");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed

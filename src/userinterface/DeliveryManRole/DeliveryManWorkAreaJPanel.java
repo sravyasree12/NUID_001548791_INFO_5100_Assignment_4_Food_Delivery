@@ -49,7 +49,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Order order : ecoSystem.getOrderDirectory().getOrderList()) {
-            if (order.getOrderStatus() != null && order.getOrderStatus().equals("Order is ready for delivery")) {
+            if (order.getOrderStatus() != null && order.getOrderStatus().equals("Order ready for delivery")) {
                 Object[] row = new Object[7];
                 row[0] = order;
                 row[1] = order.getMessage();
@@ -222,7 +222,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         Order order = (Order) workRequestJTable.getValueAt(selectedRow,0);
         order.setDeliveryMan(userAccount.getEmployee().getName());
-        order.setOrderStatus("Order Picked up");
+        order.setOrderStatus("Order picked up!");
         populateTable();
         populateDeliveryManTable();
 

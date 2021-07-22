@@ -71,7 +71,7 @@ public class ManageOrders extends javax.swing.JPanel {
         dtm.setRowCount(0);
         
         for(Order order : ecoSystem.getOrderDirectory().getOrderList()) {
-            System.out.println("Restaurant" + account.getEmployee().getName() + "  " + order.getRestaurant().getRestaurantName());
+            //System.out.println("Restaurant" + account.getEmployee().getName() + "  " + order.getRestaurant().getRestaurantName());
             if(account.getEmployee().getName().equals(order.getRestaurant().getRestaurantName())) {
                 Object [] row = new Object[5];
                 row[0] = order;
@@ -214,12 +214,12 @@ public class ManageOrders extends javax.swing.JPanel {
         }
 
         Order order = (Order)tblOrder1.getValueAt(selectedRow, 0);
-        if(order.getOrderStatus().equals("Order has been placed!")) {
-            order.setOrderStatus("Order has been accepted!");
+        if(order.getOrderStatus().equals("Order placed!")) {
+            order.setOrderStatus("Order accepted!");
         }
 
         else {
-            JOptionPane.showMessageDialog(null, "Order was either accepted or completed");
+            JOptionPane.showMessageDialog(null, "Order either accepted or completed");
             return;
         }
 
@@ -236,18 +236,18 @@ public class ManageOrders extends javax.swing.JPanel {
         }
 
         Order order = (Order)tblOrder1.getValueAt(selectedRow, 0);
-        if(order.getOrderStatus().equals("Order has been accepted!")) {
-            order.setOrderStatus("Order is ready for delivery");
+        if(order.getOrderStatus().equals("Order accepted!")) {
+            order.setOrderStatus("Order ready for delivery");
             order.setAssign(true);
         }
 
-        else if(order.getOrderStatus().equals("Order has been placed!")) {
+        else if(order.getOrderStatus().equals("Order placed!")) {
             JOptionPane.showMessageDialog(null, "Order should be accepted first");
             return;
         }
 
         else {
-            JOptionPane.showMessageDialog(null, "Order is ready for delivery");
+            JOptionPane.showMessageDialog(null, "Order ready for delivery");
             return;
         }
 
