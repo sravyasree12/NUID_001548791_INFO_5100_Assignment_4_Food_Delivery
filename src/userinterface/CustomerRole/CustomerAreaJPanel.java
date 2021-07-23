@@ -15,6 +15,7 @@ import Business.Order.OrderDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -218,7 +219,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Order ID", "Dish Name", "Price", "Restaurant", "Comment", "Ordered By", "Order Status", "Quantity"
+                "Order UUID", "Dish Name", "Price", "Restaurant", "Comment", "Ordered By", "Order Status", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
@@ -339,8 +340,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         String status = "Order placed!";
 
         Order order = ecoSystem.getOrderDirectory().createOrder();
+        order.setOrderID(String.valueOf(UUID.randomUUID().toString()));
         order.setCustomer(customer);
-        order.setOrderID(String.valueOf(count++));
+        //order.setOrderID(String.valueOf(count++));
         order.setQuantity(quantity);
         order.setMenu(menu);
         order.setRestaurant(restaurant);

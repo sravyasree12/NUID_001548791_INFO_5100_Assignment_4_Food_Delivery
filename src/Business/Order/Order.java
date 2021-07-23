@@ -10,6 +10,7 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.Menu.Menu;
 import Business.Restaurant.Restaurant;
 import Business.WorkQueue.WorkRequest;
+import java.util.UUID;
 
 /**
  *
@@ -17,7 +18,7 @@ import Business.WorkQueue.WorkRequest;
  */
 public class Order extends WorkRequest{
     
-    private String orderID;
+    private String orderID = UUID.randomUUID().toString();
     private String orderStatus;
     private Restaurant restaurant;
     private Customer customer;
